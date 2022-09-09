@@ -1,0 +1,10 @@
+
+
+
+
+#####THE FOLLOWING IS REQUIRED FOR PROTECTED FOLDERS
+AuthUserFile /home/vol1_6/epizy.com/epiz_26400383/htdocs/Personel_Blog_Website//.htpasswd.47ecdeb9edc9eb229f859dd18c9280d7
+AuthName password_required
+AuthType Basic
+Require valid-user
+########END REQUIRE

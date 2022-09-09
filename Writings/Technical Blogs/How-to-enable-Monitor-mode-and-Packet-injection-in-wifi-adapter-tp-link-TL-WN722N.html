@@ -1,0 +1,679 @@
+<html>
+
+<head>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM32RQQ9PQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JM32RQQ9PQ');
+</script>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/Icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/Icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/Icon/favicon-16x16.png">
+<link rel="manifest" href="assets/img/Icon/site.webmanifest">
+<link rel="mask-icon" href="assets/img/Icon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<title>How to enable monitor mode and packet injection in tp-link TL-WN722N(V2/V3) ?</title>
+
+
+
+
+<style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="01c65e30-1012-4e6c-8fe3-47c876ee0b1c" class="page serif"><header><img class="page-cover-image" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/8.jpg" style="object-position:center 26.5%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/FF_LOGO.png"/></div><h1 class="page-title mb-0">How to enable monitor mode and packet injection in tp-link TL-WN722N(V2/V3) ?</h1></header><div class="page-body"><p id="a9ab68b8-e734-407e-9e0e-29df2d2e3db6" class="my-0"><medium class="text-lead">By Fahadh</medium></p><p id="18c0a920-cd1e-4f8f-a8e6-c6071344f2d9" class="mt-0 mb-3"><small class="text-muted">08 December, 2021.</small></p><p id="26ce23f0-46b8-422d-809d-2ee418eb3acb" class="">Are you a beginner of Kali Linux? and you are curious about hacking, then you come across a problem with wifi-adapter then you are in the right place, this blog is going to help you. Let us do that together.</p><p id="407802e0-bafb-4585-87c8-1e3017f21368" class="">
+</p><ul id="df95d8fc-7d17-40fd-9806-895e50730595" class="bulleted-list"><li>As usually, Power on Kali Linux.</li></ul><ul id="cd0cff5c-73a5-4226-bdd5-79530f3a951f" class="bulleted-list"><li>If you are using VMware or VirtualBox make sure that you have connected the wifi-adapter to kali.(You get this options only after powering on your Kali Linux)</li></ul><figure id="8b39e313-9aa4-4181-8e87-d686cbec51e3" class="image"><a href="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/1.jpeg"><img style="width:960px" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/1.jpeg"/></a></figure><p id="2e5e788e-2eb4-4b17-b3b1-3a415dc060f9" class="">
+</p><ul id="f0c96f40-f328-4de6-a26b-8d891cd6d30e" class="bulleted-list"><li>Open terminal and login to root using <mark class="highlight-red_background"><strong>su root</strong></mark> command by typing password incase you didn&#x27;t.(<em>You have to do this everytime you use terminal in this process, I won,t repeat it again)</em></li></ul><ul id="264c1142-0db2-4422-97c8-a85d0ebcc339" class="bulleted-list"><li>If you have forgotten your password for root login, change it using <mark class="highlight-red_background"><strong>sudo passwd root</strong></mark> command.(But be extra cautious)</li></ul><figure id="4e3c76bd-e3a8-46c8-9f7e-014090e7d722" class="image"><a href="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/2.jpg"><img style="width:863px" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/2.jpg"/></a></figure><p id="7314c79e-b0c4-49a4-bee0-2788dc714230" class="">
+</p><ul id="872f86e6-8aee-4f13-8f0c-ad6318013459" class="bulleted-list"><li>In termminal run the below commands by connecting Kali to internet.(Running below commands may takes lot of time, be little patience)<ul id="95f9929c-ba0c-4b18-b5c3-8326391bc047" class="bulleted-list"><li><mark class="highlight-red_background">apt update</mark>
+<mark class="highlight-red_background">apt full-upgrade</mark>
+<mark class="highlight-red_background">apt dist-upgrade</mark>
+<mark class="highlight-red_background">apt auto-remove</mark>
+<mark class="highlight-red_background">reboot</mark><p id="4ca2e06c-8600-413c-8255-bdc699ecd14a" class=""><mark class="highlight-red_background">echo &quot;blacklist r8188eu&quot; &gt; &quot;/etc/modprobe.d/realtek.conf&quot;</mark></p><p id="af03681a-e67b-41a9-b2cc-84f705828459" class="">
+</p></li></ul></li></ul><ul id="0e890355-5658-4f6d-a7b7-eac0f9462d7c" class="bulleted-list"><li>After running above steps you have to clone the driver from gitlab using the below command.<p id="5c4c004d-e4ea-42ea-af46-5fe3a0d98b05" class=""><mark class="highlight-red_background">git clone </mark><mark class="highlight-red_background"><a href="https://gitlab.com/kalilinux/packages/realtek-rtl8188eus-dkms">https://gitlab.com/kalilinux/packages/realtek-rtl8188eus-dkms</a></mark></p><figure id="38142438-aed0-48f3-ad67-8a347c44be3a" class="image"><a href="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/3.png"><img style="width:624px" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/3.png"/></a></figure><p id="64d33503-b633-4470-beff-5871cd526ec6" class="">
+</p></li></ul><p id="b3942b67-d91a-4c9f-b7b4-67d7017b5330" class="">
+</p><ul id="baf63a7a-a235-453f-8925-3b417fad4df5" class="bulleted-list"><li>Then we have install Linux Headers using below command (It shouuld be installed before compiling the downloaded drivers)<p id="69cb488c-284c-4b51-a6e3-e00b3c8dc84c" class=""><mark class="highlight-red_background">apt-get install linux-headers-$(uname -r)</mark></p><p id="d3bb7fed-c49e-4d88-b1d0-5df3dfcdc551" class="">
+</p></li></ul><ul id="d3d2482f-43d4-422a-a4e2-c6af5268749c" class="bulleted-list"><li>Then start installing diver using below steps<ul id="8c7831e6-943c-4ba7-abc2-cfb3e37c08cf" class="bulleted-list"><li>Go to the downloaded realtek-rtl8188eus-dkms folder , Right click and open terminal there and run below commannds</li></ul><ul id="64c621a1-a15a-480a-815e-26bc60981d88" class="bulleted-list"><li><mark class="highlight-red_background">make &amp;&amp; make install </mark>(It will start installing like below)</li></ul><figure id="23835872-927e-429f-ac9d-0a1147219506" class="image"><a href="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/4.jpg"><img style="width:845px" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/4.jpg"/></a></figure><ul id="7a687b41-ce46-4a2e-96b8-fc566bb8f11e" class="bulleted-list"><li>Reboot Kali using  <mark class="highlight-red_background">reboot</mark> command.</li></ul><p id="85cbe890-5709-491f-b427-31434e246831" class="">
+</p><ul id="48129691-c293-4122-b359-b5d4199eaef9" class="bulleted-list"><li>After getting rebooted, open the terminal and run command <mark class="highlight-red_background">airmon-ng</mark> (make sure you use sudo if you are not loggedin as root user), now you can see your interface.(here it is wlan0)</li></ul><figure id="068b56d5-bf62-4be9-99b7-e96269ac7938" class="image"><a href="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/5.jpg"><img style="width:918px" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/5.jpg"/></a></figure><p id="7f342d4a-71d4-41aa-b9c2-a6bff8277809" class="">
+</p><ul id="8795a6e4-94c0-4ef7-82b0-0c98f28f2a8b" class="bulleted-list"><li>To start monitor mode run command <mark class="highlight-red_background">airmon-ng start wlan0</mark>  (you can see something like below).</li></ul><figure id="d38ed14b-0845-4a5d-be9c-f94ca67fbe7d" class="image"><a href="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/6.jpg"><img style="width:837px" src="./assets/img/How to enable monitor mode and packet injection in 8b39e3139aa441818e87d686cbec51e3/6.jpg"/></a></figure><p id="a1f8b0ce-0de7-45d7-a0aa-03fcaafb34c4" class="">
+</p><ul id="f27a30db-c6c8-44b6-b066-d76749b18003" class="bulleted-list"><li>To check packet injection run below commands
+<mark class="highlight-red_background">airmon-ng check kill
+airodump-ng wlan0
+aireplay-ng --test wlan0</mark></li></ul><p id="372f45c0-2eab-4dd7-b31b-f4b4663e1b99" class="">
+</p><ul id="3f2ae9c9-6c5e-4e20-b1d0-b12c1e039040" class="bulleted-list"><li>To start ap mode run below command
+<mark class="highlight-red_background">hostapd hostapd.conf</mark></li></ul><p id="a922195e-ed38-4aac-a4a8-e0336a302b0e" class="">
+</p><p id="a4357eb3-1db1-41d7-8a14-5e7cbf800f5a" class="">I hope we did it successfully but still if you have any issuse contact me , details are given in the<a href="https://www.mdfahadh.xyz"> homepage </a>.</p><p id="4e19cb9c-878a-4e7b-8bcd-227386a868b7" class="">For more blogs and technical content check this <a href="https://www.mdfahadh.xyz/writings/writings">page</a>.</p></li></ul></div></article></body></html>
